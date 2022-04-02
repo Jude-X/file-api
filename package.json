@@ -1,0 +1,60 @@
+{
+  "name": "file-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc --project tsconfig.json",
+    "start": "node build/index",
+    "test": "jest --config=jest.config.ts --passWithNoTests --setTimeout=1000 --runInBand --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jude-X/file-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jude-X/file-api/issues"
+  },
+  "homepage": "https://github.com/Jude-X/file-api#readme",
+  "dependencies": {
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.1.1",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.0.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^10.1.1",
+    "multer": "^1.4.4",
+    "node-fetch": "^2.6.7",
+    "supertest": "^6.2.2",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.1.19",
+    "@types/cors": "^2.8.12",
+    "@types/csvtojson": "^2.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.1",
+    "@types/koa": "^2.13.4",
+    "@types/koa__multer": "^2.0.4",
+    "@types/koa__router": "^8.0.11",
+    "@types/koa-bodyparser": "^4.3.7",
+    "@types/koa-cors": "^0.0.2",
+    "@types/koa-router": "^7.4.4",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^17.0.23",
+    "@types/node-fetch": "^2.6.1",
+    "@types/supertest": "^2.0.12",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}

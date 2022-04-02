@@ -1,0 +1,728 @@
+{
+	"info": {
+		"_postman_id": "d8c5ee99-934a-46ef-8c5c-0e987c683ad6",
+		"name": "FileAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CSV",
+			"item": [
+				{
+					"name": "valid-file-csv",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is valid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.a(\"array\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/valid-test.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-1.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-2.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid Amount (Amount should be an int or float)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid Amount (Amount should be an int or float)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-3.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TXT",
+			"item": [
+				{
+					"name": "valid-file-txt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is valid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.a(\"array\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/valid-test.txt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-txt-1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-1.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-2.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid Amount (Amount should be an int or float)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid Amount (Amount should be an int or float)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"https://raw.githubusercontent.com/Jude-X/file-api/main/invalid-test-3.csv\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/link",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"link"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UPLOAD",
+			"item": [
+				{
+					"name": "valid-file-txt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is valid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.a(\"array\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"contentType": "text/csv",
+									"type": "file",
+									"src": "/C:/Users/nzube/OneDrive/Desktop/file-api/valid-test.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/upload",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "valid-multiple-file-txt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is valid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.a(\"array\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "url",
+									"contentType": "text/csv",
+									"type": "file",
+									"src": [
+										"/C:/Users/nzube/OneDrive/Desktop/file-api/valid-test.csv",
+										"/C:/Users/nzube/OneDrive/Desktop/file-api/valid-test.txt"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/upload",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-txt-1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": "/C:/Users/nzube/OneDrive/Desktop/file-api/invalid-test-1.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/upload",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid File Header/Value (file header and values should be user and amount)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid File Header/Value (file header and values should be user and amount)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": "/C:/Users/nzube/OneDrive/Desktop/file-api/invalid-test-2.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/upload",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invalid-file-csv-3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have message of file is valid\", function () {\r",
+									"    pm.expect(jsonData.message).to.be.eql(\"file is invalid\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have error of Invalid Amount (Amount should be an int or float)\", function () {\r",
+									"    pm.expect(jsonData.error).to.be.eql(\"Invalid Amount (Amount should be an int or float)\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"should have body property\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.undefined;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": "/C:/Users/nzube/OneDrive/Desktop/file-api/invalid-test-3.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{file-api-url}}/file/upload",
+							"host": [
+								"{{file-api-url}}"
+							],
+							"path": [
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

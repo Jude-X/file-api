@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Compiled binary addons
+build
+
+# Eslint config file
+.eslintrc.json
+
+# dotenv environment variables file
+.env
+
+.vscode
+template
+templates
+dist
