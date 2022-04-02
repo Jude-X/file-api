@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 user,amount
 judex,
 sunil,
+=======
+user,amount
+judex,
+sunil,
+>>>>>>> ft/file-api
 test,
